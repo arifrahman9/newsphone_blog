@@ -1,11 +1,12 @@
 import React, { useState } from "react"
 import { Container } from "react-bootstrap"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router"
 import NavbarComponent from "../components/Navbar"
-import { addNew } from "../store/action"
+import { addNew, setIsLoading } from "../store/action"
 
 export default function AddNew() {
+  const { loading } = useSelector((state) => state)
   const [addBlog, setAddBlog] = useState({
     title: "",
     imgUrl: "",
@@ -37,6 +38,7 @@ export default function AddNew() {
     })
   }
 
+  console.log(loading, "======>>>>>>>>")
   const handleCancel = (e) => {
     e.preventDefault()
     history.push("/")
@@ -62,9 +64,16 @@ export default function AddNew() {
                 <label for="floatingTextarea">Content</label>
               </div>
               <div className="d-grid gap-2 mt-3">
-                <button className="btn btn-dark" type="submit">
-                  Submit and Publish
-                </button>
+                {loading === true ? (
+                  <button className="btn btn-dark" type="button" disabled>
+                    <span className="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                  </button>
+                ) : (
+                  <button className="btn btn-dark" type="submit">
+                    Submit and Publish
+                  </button>
+                )}
                 <button className="btn btn-dark" type="button" onClick={handleCancel}>
                   Cancel
                 </button>

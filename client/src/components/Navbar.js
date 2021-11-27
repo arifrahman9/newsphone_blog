@@ -38,7 +38,9 @@ export default function NavbarComponent() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="/">News Phone</Navbar.Brand>
+        <Navbar.Brand href="/">
+          <i class="fas fa-mobile-alt"></i> News Phone
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -53,11 +55,11 @@ export default function NavbarComponent() {
           <Nav>
             {localStorage.getItem("access_token") ? (
               <Nav.Link href="#" onClick={handleLogout}>
-                Logout
+                Logout <i class="fas fa-sign-out-alt"></i>
               </Nav.Link>
             ) : (
               <Nav.Link href="#" onClick={handleToLogin}>
-                Login
+                Login <i class="fas fa-sign-in-alt"></i>
               </Nav.Link>
             )}
 
@@ -65,7 +67,7 @@ export default function NavbarComponent() {
               ""
             ) : (
               <Nav.Link href="#" onClick={handleToRegister}>
-                Register
+                Signup <i class="fas fa-user-lock"></i>
               </Nav.Link>
             )}
           </Nav>

@@ -1,4 +1,4 @@
-import { GET_ALL, GET_DETAIL_ALL, LOGIN, REGISTER, ADDBLOG, EDITBLOG, DELETEBLOG, GET_DETAIL_USER } from "./actionTypes"
+import { GET_ALL, GET_DETAIL_ALL, LOGIN, REGISTER, ADDBLOG, EDITBLOG, DELETEBLOG, GET_DETAIL_USER, ISLOADING } from "./actionTypes"
 import axios from "axios"
 
 export function getData(payload) {
@@ -57,6 +57,13 @@ export function setOneUser(payload) {
   }
 }
 
+export function setIsLoading(payload) {
+  return {
+    type: ISLOADING,
+    payload,
+  }
+}
+
 export function fetchBlog() {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
@@ -81,7 +88,7 @@ export function fetchDetailBlog(id) {
         method: "GET",
       })
         .then(({ data }) => {
-          console.log(data, "from action")
+          // console.log(data, "from action")
           dispatch(getDetail(data))
           resolve(data)
         })
@@ -140,6 +147,7 @@ export function addNew(data, file) {
 
   return (dispatch) => {
     return new Promise((resolve, reject) => {
+      dispatch(setIsLoading(true))
       axios({
         url: "http://localhost:3000/blogs",
         method: "POST",
@@ -153,15 +161,18 @@ export function addNew(data, file) {
           resolve()
         })
         .catch((err) => {
-          console.log(err)
+          // console.log(err)
           reject(err.response.data)
+        })
+        .finally(() => {
+          dispatch(setIsLoading(false))
         })
     })
   }
 }
 
 export function editBlog(id, data, file) {
-  console.log(id, data, file, "from action")
+  // console.log(id, data, file, "from action")
   let form = new FormData()
   form.append("title", data.title)
   form.append("imgUrl", file)
@@ -190,8 +201,10 @@ export function editBlog(id, data, file) {
 }
 
 export function deleteBlog(id) {
+  // console.log(id, "from action")
   return (dispatch) => {
     return new Promise((resolve, reject) => {
+      dispatch(setIsLoading(true))
       axios({
         url: `http://localhost:3000/blogs/${id}`,
         method: "DELETE",
@@ -200,11 +213,14 @@ export function deleteBlog(id) {
         },
       })
         .then((data) => {
-          console.log(data)
+          console.log(data, "from action")
           dispatch(setDelete(data))
           resolve()
         })
         .catch((err) => reject(err))
+        .finally(() => {
+          dispatch(setIsLoading(false))
+        })
     })
   }
 }

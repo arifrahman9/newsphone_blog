@@ -24,6 +24,7 @@ export default function DetailPage() {
 
   const handleDelete = (e) => {
     e.preventDefault()
+
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -32,18 +33,18 @@ export default function DetailPage() {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
-    })
-      .then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire("Deleted!", "Your file has been deleted.", "success")
-          dispatch(deleteBlog(id)).then(() => {
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "Your file has been deleted.", "success")
+        dispatch(deleteBlog(id))
+          .then(() => {
             history.push("/")
           })
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
+    })
   }
 
   const handleToEdit = (e) => {
@@ -83,7 +84,7 @@ export default function DetailPage() {
             <Card.Text style={{ textAlign: "justify", whiteSpace: "pre-line" }}>{blog.content}</Card.Text>
             <div class="d-grid gap-2">
               {localStorage.getItem("access_token") ? (
-                blog?.userId === user.id ? (
+                blog?.userId === user?.id ? (
                   <button class="btn btn-danger" type="button" onClick={handleDelete}>
                     Delete
                   </button>

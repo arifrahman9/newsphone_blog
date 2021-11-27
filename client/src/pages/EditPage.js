@@ -67,7 +67,7 @@ export default function EditPage() {
                 <input type="text" class="form-control" id="floatingInput" placeholder="Title" name="title" value={editBlogPost?.title} onChange={changeInputEdit} />
                 <label for="floatingInput">Title</label>
               </div>
-              <img src={editBlogPost?.imgUrl} width="70%" alt="Previous" className="mb-3" />
+              <img src={editBlogPost?.imgUrl} width="100%" alt="Previous" className="mb-3" />
               <div class="input-group mb-3">
                 <input type="file" class="form-control" id="inputGroupFile01" onChange={handleFileInput} />
               </div>

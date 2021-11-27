@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router"
 import NavbarComponent from "../components/Navbar"
 import { fetchBlog } from "../store/action"
+import CarouselComponent from "../components/Carousel"
 
 export default function Homepage() {
   const { blogs } = useSelector((state) => state)
@@ -19,14 +20,17 @@ export default function Homepage() {
   }
 
   return (
-    <div style={{ backgroundColor: "#E5E7EB" }}>
+    <div>
       <NavbarComponent />
+      <Container style={{ backgroundColor: "#D1D5DB" }}>
+        <CarouselComponent />
+      </Container>
       <Container className="d-flex justify-content-center align-items-center text-center p-5" style={{ minHeight: "100vh", backgroundColor: "#D1D5DB" }}>
-        <Row xl="2" md="2" sm="1">
+        <Row xl="3" md="2" sm="1">
           {blogs?.map((el) => (
             <Col>
               <Card style={{ marginTop: "3%", borderInline: "0", borderRadius: "15px" }} key={el?.id}>
-                <Card.Img variant="top" src={el?.imgUrl} style={{ borderTopLeftRadius: "15px", borderTopRightRadius: "15px", height: "400px" }} />
+                <Card.Img variant="top" src={el?.imgUrl} style={{ borderTopLeftRadius: "15px", borderTopRightRadius: "15px", height: "300px" }} />
                 <Card.Body>
                   <Card.Title style={{ fontWeight: "bolder", textAlign: "left" }}>{el?.title}</Card.Title>
                   <Button variant="dark" onClick={() => handleDetail(el?.id)}>

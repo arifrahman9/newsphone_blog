@@ -7,13 +7,11 @@ import LoginPage from "./pages/LoginPage"
 import RegisterPage from "./pages/RegisterPage"
 import AddNew from "./pages/AddNewBlog"
 import EditPage from "./pages/EditPage"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { getOneUser } from "./store/action"
 
 function App() {
   const dispatch = useDispatch()
-  const { user } = useSelector((state) => state)
-  console.log(user, "from app")
   useEffect(() => {
     dispatch(getOneUser())
   }, [])

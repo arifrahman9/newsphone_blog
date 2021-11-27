@@ -86,14 +86,17 @@ class BlogController {
   static async deleteBlog(req, res, next) {
     try {
       const { id } = req.params
+      console.log(id)
       const response = await Blog.destroy({
         where: {
           id,
         },
         returning: true,
       })
+      console.log(response, "====>>>>>")
       res.status(200).json(response)
     } catch (err) {
+      console.log(err)
       next(err)
     }
   }
