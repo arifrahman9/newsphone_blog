@@ -61,8 +61,9 @@ export default function DetailPage() {
           <Card.Body style={{ zIndex: "99" }}>
             <div className="row justify-content-between mb-3">
               <div className="col-9 mb-3">
-                <Card.Text style={{ textAlign: "left", marginBottom: "-6px" }}>{blog?.User?.username},</Card.Text>
-                <Card.Text style={{ textAlign: "left" }}>{blog.createdAt}</Card.Text>
+                <Card.Text style={{ textAlign: "left", marginBottom: "-6px" }}>
+                  <span style={{ fontWeight: "bolder" }}>Created By:</span> {blog?.User?.username}
+                </Card.Text>
               </div>
               <div className="col-3">
                 {localStorage.getItem("access_token") ? (
@@ -90,9 +91,6 @@ export default function DetailPage() {
                   ""
                 )
               ) : (
-                // <button class="btn btn-danger" type="button" onClick={handleDelete}>
-                //   Delete
-                // </button>
                 ""
               )}
               <button class="btn btn-dark" type="button" onClick={handleBack}>
