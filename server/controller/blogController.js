@@ -5,6 +5,7 @@ class BlogController {
   static async getAll(req, res, next) {
     try {
       const response = await Blog.findAll()
+
       res.status(200).json(response)
     } catch (err) {
       next(err)

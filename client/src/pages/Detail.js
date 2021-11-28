@@ -57,7 +57,7 @@ export default function DetailPage() {
     <div style={{ backgroundColor: "#E5E7EB" }}>
       <NavbarComponent />
       <Container className="d-flex justify-content-center align-items-center p-5 text-center" style={{ backgroundColor: "#D1D5DB" }}>
-        <Card style={{ marginTop: "3%", borderInline: "0", borderRadius: "15px" }} className="col-md-6">
+        <Card style={{ marginTop: "3%", borderInline: "0", borderRadius: "15px" }} className="col-md-7">
           <Card.Img variant="top" src={blog.imgUrl} style={{ borderTopLeftRadius: "15px", borderTopRightRadius: "15px" }} />
           <Card.Body style={{ zIndex: "99" }}>
             <div className="row justify-content-between mb-3">

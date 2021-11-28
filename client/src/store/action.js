@@ -67,6 +67,7 @@ export function setIsLoading(payload) {
 export function fetchBlog() {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
+      dispatch(setIsLoading(true))
       axios({
         url: "http://localhost:3000/blogs",
         method: "GET",
@@ -76,6 +77,9 @@ export function fetchBlog() {
           resolve(data)
         })
         .catch((err) => reject(err))
+        .finally(() => {
+          dispatch(setIsLoading(false))
+        })
     })
   }
 }
