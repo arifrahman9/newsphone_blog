@@ -92,7 +92,6 @@ export function fetchDetailBlog(id) {
         method: "GET",
       })
         .then(({ data }) => {
-          // console.log(data, "from action")
           dispatch(getDetail(data))
           resolve(data)
         })
@@ -116,7 +115,7 @@ export function loggedIn(data) {
           resolve()
         })
         .catch((err) => {
-          // console.log(err)
+          console.log(err)
           reject(err.response.data)
         })
     })
@@ -176,7 +175,6 @@ export function addNew(data, file) {
 }
 
 export function editBlog(id, data, file) {
-  // console.log(id, data, file, "from action")
   let form = new FormData()
   form.append("title", data.title)
   form.append("imgUrl", file)
@@ -192,7 +190,6 @@ export function editBlog(id, data, file) {
         data: form,
       })
         .then((data) => {
-          // console.log(data)
           dispatch(setEdit(data))
           resolve()
         })
@@ -205,7 +202,6 @@ export function editBlog(id, data, file) {
 }
 
 export function deleteBlog(id) {
-  // console.log(id, "from action")
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       dispatch(setIsLoading(true))
@@ -217,7 +213,6 @@ export function deleteBlog(id) {
         },
       })
         .then((data) => {
-          console.log(data, "from action")
           dispatch(setDelete(data))
           resolve()
         })
@@ -240,7 +235,6 @@ export function getOneUser() {
         },
       })
         .then(({ data }) => {
-          console.log(data)
           dispatch(setOneUser(data))
           resolve()
         })

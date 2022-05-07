@@ -1,0 +1,92 @@
+.title-news {
+  color: rgb(80, 75, 75);
+}
+
+.title-news:hover {
+  color: #00a8ff;
+}
+
+/* For devices with width of 480px and less, like phones */
+@media only screen and (max-width: 480px) {
+  .news-side {
+    font-size: 10px;
+  }
+
+  .artikel-side .img-side {
+    width: 100%;
+    margin-bottom: -20px;
+  }
+  .artikel-side .title-side {
+    font-size: 8px;
+    margin-top: -10px;
+  }
+} 
+
+/* For devices max width 300px */
+@media only screen and (max-width: 300px) {
+  .news-side {
+    font-size: 8px;
+  }
+
+  .artikel-side .img-side {
+    width: 100%;
+    margin-bottom: -20px;
+  }
+  .artikel-side .title-side {
+    font-size: 5px;
+    margin-top: -10px;
+  }
+} 
+
+/* For devices less then width between 481px and 768px, like larger phones and portrait tablets */
+@media only screen and (min-width: 481px) {
+  .news-side {
+    font-size: 15px;
+  }
+
+  .artikel-side .img-side {
+    width: 100%;
+    margin-bottom: -20px;
+  }
+  .artikel-side .title-side {
+    font-size: 12px;
+    margin-top: -10px;
+  }
+} 
+
+/* For devices with width between 769px and 1279px, like landscape tablets and laptops */
+@media only screen and (min-width: 769px) {
+  .news-side {
+    font-size: 20px;
+  }
+
+  .artikel-side .img-side {
+    width: 100%;
+    margin-bottom: -20px;
+  }
+  .artikel-side .title-side {
+    font-size: 15px;
+    margin-top: -10px;
+  }
+} 
+
+/* For devices with width of 1280px and more, like desktop computers */
+@media only screen and (min-width: 1280px) {
+  .news-side {
+    font-size: 18px;
+  }
+
+  .artikel-side {
+    display: flex;
+  }
+
+  .artikel-side .img-side {
+    width: 100%;
+    /* margin-bottom: -20px; */
+  }
+  .artikel-side .title-side {
+    font-size: 15px;
+    margin-top: 2px;
+    margin-left: 5px;
+  }
+}

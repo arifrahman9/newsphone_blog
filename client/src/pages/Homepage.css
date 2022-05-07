@@ -1,0 +1,9 @@
+.card-news {
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+}
+
+.img-news:hover .card-news {
+  -webkit-transform: scale(1.08);
+  transform: scale(1.08);
+}

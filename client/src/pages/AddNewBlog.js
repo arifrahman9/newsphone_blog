@@ -38,7 +38,6 @@ export default function AddNew() {
     })
   }
 
-  console.log(loading, "======>>>>>>>>")
   const handleCancel = (e) => {
     e.preventDefault()
     history.push("/")

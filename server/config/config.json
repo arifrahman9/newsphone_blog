@@ -2,14 +2,14 @@
   "development": {
     "username": "postgres",
     "password": "postgres",
-    "database": "cloudxier_sample_blog",
+    "database": "blogs",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
     "password": "postgres",
-    "database": "cloudxier_sample_blog_test",
+    "database": "blogs_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
