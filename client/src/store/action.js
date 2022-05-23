@@ -1,5 +1,6 @@
 import { GET_ALL, GET_DETAIL_ALL, LOGIN, REGISTER, ADDBLOG, EDITBLOG, DELETEBLOG, GET_DETAIL_USER, ISLOADING } from "./actionTypes"
 import axios from "axios"
+import { server } from '../config/server'
 
 export function getData(payload) {
   return {
@@ -69,7 +70,7 @@ export function fetchBlog() {
     return new Promise((resolve, reject) => {
       dispatch(setIsLoading(true))
       axios({
-        url: "http://localhost:3000/blogs",
+        url: `${server}blogs`,
         method: "GET",
       })
         .then(({ data }) => {
@@ -88,7 +89,7 @@ export function fetchDetailBlog(id) {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       axios({
-        url: `http://localhost:3000/blogs/${id}`,
+        url: `${server}blogs/${id}`,
         method: "GET",
       })
         .then(({ data }) => {
@@ -104,7 +105,7 @@ export function loggedIn(data) {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       axios({
-        url: "http://localhost:3000/login",
+        url: `${server}login`,
         method: "POST",
         data: data,
       })
@@ -126,7 +127,7 @@ export function registered(data) {
   return (dispatch) => {
     return new Promise((resolve, reject) => [
       axios({
-        url: "http://localhost:3000/register",
+        url: `${server}register`,
         method: "POST",
         data: data,
       })
@@ -152,7 +153,7 @@ export function addNew(data, file) {
     return new Promise((resolve, reject) => {
       dispatch(setIsLoading(true))
       axios({
-        url: "http://localhost:3000/blogs",
+        url: `${server}blogs`,
         method: "POST",
         data: form,
         headers: {
@@ -182,7 +183,7 @@ export function editBlog(id, data, file) {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       axios({
-        url: `http://localhost:3000/blogs/${id}`,
+        url: `${server}blogs/${id}`,
         method: "PUT",
         headers: {
           access_token: localStorage.getItem("access_token"),
@@ -206,7 +207,7 @@ export function deleteBlog(id) {
     return new Promise((resolve, reject) => {
       dispatch(setIsLoading(true))
       axios({
-        url: `http://localhost:3000/blogs/${id}`,
+        url: `${server}blogs/${id}`,
         method: "DELETE",
         headers: {
           access_token: localStorage.getItem("access_token"),
@@ -228,7 +229,7 @@ export function getOneUser() {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       axios({
-        url: `http://localhost:3000/users`,
+        url: `${server}users`,
         method: "GET",
         headers: {
           access_token: localStorage.getItem("access_token"),
