@@ -107,7 +107,7 @@ export default function DetailPage() {
 										style={{ backgroundColor: "#D1D5DB" }}
 										onClick={handleToEdit}
 									>
-										<i class="fa fa-pencil-square-o"></i> Edit
+										<i className="fa fa-pencil-square-o"></i> Edit
 									</button>
 								) : (
 									""
@@ -122,7 +122,7 @@ export default function DetailPage() {
 										style={{ backgroundColor: "#D1D5DB" }}
 										onClick={handleDelete}
 									>
-										<i class="fa fa-trash-alt"></i> Delete
+										<i className="fa fa-trash-alt"></i> Delete
 									</button>
 								) : (
 									""

@@ -51,15 +51,15 @@ export default function AddNew() {
           <div className="card-body">
             <h3 className="text-center">Add New Blog</h3>
             <form onSubmit={handleSubmitAdd}>
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="Title" name="title" value={addBlog.title} onChange={changeInputAddHandler} />
+              <div className="form-floating mb-3">
+                <input type="text" className="form-control" id="floatingInput" placeholder="Title" name="title" value={addBlog.title} onChange={changeInputAddHandler} />
                 <label for="floatingInput">Title</label>
               </div>
-              <div class="input-group mb-3">
-                <input type="file" class="form-control" id="inputGroupFile01" onChange={changeFileinput} />
+              <div className="input-group mb-3">
+                <input type="file" className="form-control" id="inputGroupFile01" onChange={changeFileinput} />
               </div>
-              <div class="form-floating">
-                <textarea class="form-control" id="floatingTextarea" placeholder="Please input your content" name="content" value={addBlog.content} onChange={changeInputAddHandler}></textarea>
+              <div className="form-floating">
+                <textarea className="form-control" id="floatingTextarea" placeholder="Please input your content" name="content" value={addBlog.content} onChange={changeInputAddHandler}></textarea>
                 <label for="floatingTextarea">Content</label>
               </div>
               <div className="d-grid gap-2 mt-3">

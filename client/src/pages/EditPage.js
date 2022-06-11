@@ -66,10 +66,10 @@ export default function EditPage() {
 					<div className="card-body">
 						<h3 className="text-center">Edit Blog</h3>
 						<form onSubmit={handleSubmitEdit}>
-							<div class="form-floating mb-3">
+							<div className="form-floating mb-3">
 								<input
 									type="text"
-									class="form-control"
+									className="form-control"
 									id="floatingInput"
 									placeholder="Title"
 									name="title"
@@ -84,17 +84,17 @@ export default function EditPage() {
 								alt="Previous"
 								className="mb-3"
 							/>
-							<div class="input-group mb-3">
+							<div className="input-group mb-3">
 								<input
 									type="file"
-									class="form-control"
+									className="form-control"
 									id="inputGroupFile01"
 									onChange={handleFileInput}
 								/>
 							</div>
-							<div class="form-floating">
+							<div className="form-floating">
 								<textarea
-									class="form-control"
+									className="form-control"
 									id="floatingTextarea"
 									placeholder="Please input your content"
 									name="content"

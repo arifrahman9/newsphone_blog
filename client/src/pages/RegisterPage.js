@@ -57,7 +57,7 @@ export default function RegisterPage() {
             <form onSubmit={handleSubmitLogin}>
               <div className="input-group mb-3">
                 <span className="input-group-text" id="basic-addon1">
-                  <i class="fa fa-user-plus"></i>
+                  <i className="fa fa-user-plus"></i>
                 </span>
                 <input type="text" className="form-control" placeholder="Username" aria-describedby="basic-addon1" name="username" value={userRegister.username} onChange={changeInputLoginHandler} />
               </div>
@@ -75,15 +75,15 @@ export default function RegisterPage() {
               </div>
               <div className="input-group mb-3">
                 <span className="input-group-text" id="basic-addon1">
-                  <i class="fa fa-phone"></i>
+                  <i className="fa fa-phone"></i>
                 </span>
                 <input type="number" className="form-control" placeholder="No. Handphone" aria-describedby="basic-addon1" name="phoneNumber" value={userRegister.phoneNumber} onChange={changeInputLoginHandler} />
               </div>
-              <div class="input-group">
-                <span class="input-group-text">
-                  <i class="fa fa-home"></i>
+              <div className="input-group">
+                <span className="input-group-text">
+                  <i className="fa fa-home"></i>
                 </span>
-                <textarea class="form-control" aria-label="With textarea" placeholder="Address" name="address" value={userRegister.address} onChange={changeInputLoginHandler}></textarea>
+                <textarea className="form-control" aria-label="With textarea" placeholder="Address" name="address" value={userRegister.address} onChange={changeInputLoginHandler}></textarea>
               </div>
               <div className="d-grid gap-2 mt-3">
                 <button className="btn btn-dark" type="submit">
